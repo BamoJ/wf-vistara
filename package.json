@@ -1,9 +1,4 @@
 {
-	"name": "webflow-starter-dev",
-	"version": "0.0.1",
-	"author": "bamo.j <hi@bamoj.com>",
-	"license": "MIT",
-	"type": "module",
 	"scripts": {
 		"dev": "vite",
 		"build": "vite build",
@@ -16,11 +11,10 @@
 		"vite": "^2.9.16"
 	},
 	"dependencies": {
+		"@barba/core": "^2.9.7",
 		"@studio-freight/lenis": "^1.0.16",
-		"glslify": "^7.1.1",
 		"gsap": "^3.12.5",
 		"rollup-plugin-glslify": "^1.3.1",
-		"split-type": "^0.3.3",
-		"three": "^0.154.0"
+		"split-type": "^0.3.3"
 	}
 }

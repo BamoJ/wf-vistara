@@ -3,12 +3,13 @@ import SplitType from 'split-type'
 export default class Split {
 	constructor() {
 		this.width = window.innerWidth
-		this.initSplit()
+
+		this.splitText()
 	}
 
 	splitText() {
 		this.runSplit = () => {
-			this.text = document.querySelectorAll('[data-text-split]')
+			this.text = document.querySelectorAll('[data-text=split]')
 
 			this.text.forEach((text) => {
 				this.textContent = text.textContent
@@ -29,7 +30,9 @@ export default class Split {
 		}
 
 		this.runSplit()
+	}
 
+	revert() {
 		window.addEventListener('resize', () => {
 			if (this.width !== window.innerWidth) {
 				this.width = window.innerWidth
@@ -38,9 +41,5 @@ export default class Split {
 				this.runSplit()
 			}
 		})
-	}
-
-	initSplit() {
-		this.splitText()
 	}
 }
