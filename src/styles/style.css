@@ -23,13 +23,22 @@ html.lenis, html.lenis body {
 } 
 
 
-/* 
+
 [data-text="split"] {
-  display: inline-block;
-  white-space: nowrap;
-}  */
+  display: inline-block;  
+} 
 
 .lineChild {
   overflow: hidden;
 }
 
+/* Hide scrollbars for the body element in most browsers */
+body {
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+/* Specifically for webkit-based browsers to ensure scrollbars are not displayed */
+body::-webkit-scrollbar {
+  display: none;
+}

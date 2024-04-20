@@ -5,6 +5,7 @@ export default class Split {
 		this.width = window.innerWidth
 
 		this.splitText()
+		this.revert()
 	}
 
 	splitText() {

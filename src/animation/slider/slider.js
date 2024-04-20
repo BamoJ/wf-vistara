@@ -1,23 +1,47 @@
+// core version + navigation, pagination modules:
+import Swiper from 'swiper'
+import { Navigation, Parallax } from 'swiper/modules'
 import gsap from 'gsap'
+import 'swiper/css'
 
 export default class Slider {
 	constructor() {
-		this.init()
+		this.runSlider()
 	}
 
 	runSlider() {
 		const swiper = new Swiper('.swiper', {
-			slidesPerView: 1.5,
-			spaceBetween: 100,
+			modules: [Navigation, Parallax],
+			slideClass: 'swiper-slide',
+			wrapperClass: 'swiper-wrapper',
+			slideActiveClass: 'slide-active',
+			centeredSlides: true,
+			parallax: true,
+			speed: 750,
 			loop: true,
 			navigation: {
-				nextEl: '.swiper-btn-next',
-				prevEl: '.swiper-btn-prev',
+				nextEl: '.swiper_button_next',
+				prevEl: '.swiper_button_prev',
+			},
+			breakpoints: {
+				479: {
+					slidesPerView: 1,
+					spaceBetween: 10,
+				},
+				768: {
+					slidesPerView: 1,
+					spaceBetween: 20,
+				},
+				991: {
+					slidesPerView: 1.5,
+					spaceBetween: 100,
+				},
 			},
 		})
-	}
-
-	init() {
-		this.runSlider()
+		swiper.on('slideChange', (e) => {
+			let slideNumber = e.realIndex + 1
+			document.querySelector('[data-slide-number]').textContent =
+				slideNumber
+		})
 	}
 }
