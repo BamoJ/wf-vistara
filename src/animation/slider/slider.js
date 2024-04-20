@@ -1,12 +1,12 @@
 // core version + navigation, pagination modules:
-import Swiper from 'swiper'
-import { Navigation, Parallax } from 'swiper/modules'
-import gsap from 'gsap'
-import 'swiper/css'
+import Swiper from 'swiper';
+import { Navigation, Parallax } from 'swiper/modules';
+import gsap from 'gsap';
+import 'swiper/css';
 
 export default class Slider {
 	constructor() {
-		this.runSlider()
+		this.runSlider();
 	}
 
 	runSlider() {
@@ -28,20 +28,20 @@ export default class Slider {
 					slidesPerView: 1,
 					spaceBetween: 10,
 				},
-				768: {
+				767: {
 					slidesPerView: 1,
 					spaceBetween: 20,
 				},
 				991: {
-					slidesPerView: 1.5,
+					slidesPerView: 1.65,
 					spaceBetween: 100,
 				},
 			},
-		})
+		});
 		swiper.on('slideChange', (e) => {
-			let slideNumber = e.realIndex + 1
+			let slideNumber = e.realIndex + 1;
 			document.querySelector('[data-slide-number]').textContent =
-				slideNumber
-		})
+				slideNumber;
+		});
 	}
 }
