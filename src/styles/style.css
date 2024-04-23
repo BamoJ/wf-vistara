@@ -29,6 +29,8 @@ html.lenis body {
 
 .lineChild {
 	overflow: clip;
+	word-break: keep-all;
+	white-space: inherit;
 }
 
 /* Hide scrollbars for the body element in most browsers */

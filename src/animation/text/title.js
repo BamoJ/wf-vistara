@@ -1,9 +1,27 @@
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 export default class Title {
 	constructor() {
-		this.init()
+		this.el = document.querySelectorAll('[data-animation="title"]');
+
+		this.animate();
 	}
 
-	init() {
-		console.log('Title Animation init')
+	animate() {
+		this.el.forEach((el) => {
+			gsap.from(el, {
+				scrollTrigger: {
+					trigger: el,
+					start: 'top 80%',
+					toggleActions: 'play none none none',
+				},
+				y: 50,
+				opacity: 0,
+				duration: 0.5,
+				ease: 'power2.inOut',
+			});
+		});
 	}
 }
