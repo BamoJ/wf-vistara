@@ -29,8 +29,6 @@ html.lenis body {
 
 .lineChild {
 	overflow: clip;
-	word-break: keep-all;
-	white-space: inherit;
 }
 
 /* Hide scrollbars for the body element in most browsers */
@@ -70,3 +68,18 @@ body::-webkit-scrollbar {
 .swiper-slide.slide-active .img_wrap {
 	transform: scale(1);
 }
+
+/* .main {
+	position: absolute;
+	width: 100%;
+	height: 100svh;
+	top: 0;
+	left: 0;
+}
+
+.page_wrapper {
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	height: 100svh;
+} */
