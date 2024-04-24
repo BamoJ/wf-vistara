@@ -68,18 +68,25 @@ body::-webkit-scrollbar {
 .swiper-slide.slide-active .img_wrap {
 	transform: scale(1);
 }
-
-/* .main {
-	position: absolute;
-	width: 100%;
-	height: 100svh;
-	top: 0;
-	left: 0;
-}
-
+/* Barba Wrapper */
 .page_wrapper {
 	position: relative;
 	overflow: hidden;
 	width: 100%;
-	height: 100svh;
-} */
+	height: 100vh;
+}
+
+/* Barba Container */
+.main {
+	position: absolute;
+	width: 100%;
+	height: 100vh;
+	left: 0;
+	top: 0;
+}
+
+.main.active {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}

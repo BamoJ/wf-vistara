@@ -1,10 +1,9 @@
 import gsap from 'gsap';
 
-const animationEnter = (container) => {
+export default function animationEnter(container) {
 	const head = container.querySelectorAll(
 		'[data-animation="trans-head"]',
 	);
-
 	const text = container.querySelectorAll(
 		'[data-animation="trans-txt"]',
 	);
@@ -15,18 +14,15 @@ const animationEnter = (container) => {
 	});
 
 	const lines = [];
-
 	text.forEach((text) => {
 		lines.push(...text.querySelectorAll('.line_inner'));
 	});
 
-	console.log(head, text, chars);
-
-	const tl = gsap.timeline();
+	const tl = gsap.timeline({});
 	tl
 		.from(container, {
-			duration: 1.2,
-			ease: 'expo.out',
+			duration: 1.8,
+			ease: 'expo.inOut',
 			clipPath: 'inset(0% 0% 100% 0%)',
 		})
 		.from(
@@ -42,13 +38,13 @@ const animationEnter = (container) => {
 			chars,
 			{
 				yPercent: 105,
-				duration: 1,
+				duration: 1.5,
 				ease: 'power4.out',
 				stagger: {
-					amount: 0.8,
+					amount: 0.4,
 				},
 			},
-			'<+0.5',
+			'<+0.6',
 		)
 		.from(
 			lines,
@@ -57,12 +53,10 @@ const animationEnter = (container) => {
 				duration: 1,
 				ease: 'power3.out',
 				stagger: {
-					each: 0.1,
+					each: 0.15,
 				},
 			},
-			'<+0.1',
+			'<+0.3',
 		);
 	return tl;
-};
-
-export default animationEnter;
+}

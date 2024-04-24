@@ -1,7 +1,7 @@
 import gsap from 'gsap';
 
-const animationLeave = (container) => {
-	const tl = gsap.timeline();
+export default function animationLeave(container) {
+	const tl = gsap.timeline({});
 	tl
 		.fromTo(
 			container,
@@ -25,6 +25,4 @@ const animationLeave = (container) => {
 		);
 
 	return tl;
-};
-
-export default animationLeave;
+}
