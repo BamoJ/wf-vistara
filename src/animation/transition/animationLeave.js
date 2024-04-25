@@ -1,17 +1,19 @@
 import gsap from 'gsap';
 
 export default function animationLeave(container) {
+	const transContainer = document.querySelector('.transition');
 	const tl = gsap.timeline({});
-	tl.to(container, {
-		clipPath: 'inset(0% 0% 0% 100%)',
+	gsap.set(transContainer, { transform: 'translateY(100%)' });
+	tl.to(transContainer, {
+		transform: 'translateY(0%)',
 		duration: 1.8,
 		ease: 'expo.inOut',
 	});
 	tl.to(
 		container,
 		{
-			yPercent: 100,
-			duration: 1.8,
+			y: '-100vh',
+			duration: 2,
 			ease: 'expo.inOut',
 		},
 		'<+0.2',

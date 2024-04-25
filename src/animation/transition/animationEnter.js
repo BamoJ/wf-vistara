@@ -1,8 +1,6 @@
 import gsap from 'gsap';
 
 export default function animationEnter(container) {
-	const wrapper = container.querySelector('.page_wrapper');
-	const containerInner = container.querySelector('.main');
 	const head = container.querySelectorAll(
 		'[data-animation="trans-head"]',
 	);
@@ -19,29 +17,25 @@ export default function animationEnter(container) {
 	text.forEach((text) => {
 		lines.push(...text.querySelectorAll('.line_inner'));
 	});
+	const transContainer = document.querySelector('.transition');
+	console.log(transContainer);
+	gsap.set(transContainer, { transform: 'translateY(100%)' });
 
-	// GSAP timeline with onComplete callback to adjust wrapper height
-	const tl = gsap.timeline({
-		onComplete: () => {
-			wrapper.style.height = '100%'; // Adjust height to 100% after transition
-			containerInner.style.position = 'relative'; // Ensure position is set as needed
-		},
-	});
-
+	const tl = gsap.timeline();
 	tl
-		.from(container, {
+		.to(transContainer, {
+			transform: 'translateY(-100%)',
 			duration: 1.8,
 			ease: 'expo.inOut',
-			clipPath: 'inset(0% 0% 100% 0%)',
 		})
 		.from(
 			container,
 			{
-				yPercent: 100,
+				y: '100vh',
 				duration: 1.8,
 				ease: 'expo.inOut',
 			},
-			'<+0.2',
+			'<',
 		)
 		.from(
 			chars,

@@ -11,6 +11,13 @@ export default class Transition {
 		this.pageTrans();
 	}
 
+	/**
+	 * TODO: Add loading cursor while transitioning, and remove it after transition
+	 * TODO: Tidy stagger animations
+	 * TODO: add Whipe animation
+	 * TODO: Fix SLIDER, make sure it works while transitioning
+	 */
+
 	pageTrans() {
 		this.barba.use(barbaPrefetch);
 		this.barba.init({
@@ -19,9 +26,6 @@ export default class Transition {
 				{
 					sync: true,
 					name: 'default-transition',
-					beforeLeave({ current }) {
-						current.container.classList.add('is-transition');
-					},
 					leave: ({ current }) => {
 						console.log('leaving current page');
 						return animationLeave(current.container);
@@ -45,11 +49,12 @@ export default class Transition {
 		});
 
 		this.barba.hooks.beforeEnter(() => {
-			window.scrollTo(0, 0);
-
 			new Split();
 		});
-
-		this.barba.hooks.afterEnter(() => {});
+		this.barba.hooks.after(() => {
+			const transContainer = document.querySelector('.transition');
+			transContainer.style.transform = 'translateY(100%)';
+			window.scrollTo(0, 0);
+		});
 	}
 }
