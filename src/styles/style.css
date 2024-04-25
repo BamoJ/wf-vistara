@@ -69,24 +69,19 @@ body::-webkit-scrollbar {
 	transform: scale(1);
 }
 /* Barba Wrapper */
-.page_wrapper {
+.page_wrapper.is-transition {
 	position: relative;
 	overflow: hidden;
 	width: 100%;
-	height: 100vh;
+	height: 100%;
 }
 
 /* Barba Container */
-.main {
+.main.is-transition {
 	position: absolute;
 	width: 100%;
-	height: 100vh;
+	height: 100%;
 	left: 0;
 	top: 0;
-}
-
-.main.active {
-	position: relative;
-	width: 100%;
-	height: 100%;
+	z-index: 500;
 }

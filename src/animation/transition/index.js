@@ -18,27 +18,38 @@ export default class Transition {
 			transitions: [
 				{
 					sync: true,
+					name: 'default-transition',
+					beforeLeave({ current }) {
+						current.container.classList.add('is-transition');
+					},
 					leave: ({ current }) => {
 						console.log('leaving current page');
 						return animationLeave(current.container);
+					},
+					afterLeave({ current }) {
+						current.container.classList.remove('is-transition');
+						new Slider();
+					},
+					beforeEnter({ next }) {
+						next.container.classList.add('is-transition');
 					},
 					enter: ({ next }) => {
 						console.log('entering next page');
 						animationEnter(next.container);
 					},
+					afterEnter({ next }) {
+						next.container.classList.remove('is-transition');
+					},
 				},
 			],
 		});
-		this.barba.hooks.afterLeave(() => {
-			new Slider();
-		});
 
 		this.barba.hooks.beforeEnter(() => {
+			window.scrollTo(0, 0);
+
 			new Split();
 		});
 
-		this.barba.hooks.afterEnter(() => {
-			window.scrollTo(0, 0);
-		});
+		this.barba.hooks.afterEnter(() => {});
 	}
 }

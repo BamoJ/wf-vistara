@@ -1,6 +1,8 @@
 import gsap from 'gsap';
 
 export default function animationEnter(container) {
+	const wrapper = container.querySelector('.page_wrapper');
+	const containerInner = container.querySelector('.main');
 	const head = container.querySelectorAll(
 		'[data-animation="trans-head"]',
 	);
@@ -18,7 +20,14 @@ export default function animationEnter(container) {
 		lines.push(...text.querySelectorAll('.line_inner'));
 	});
 
-	const tl = gsap.timeline({});
+	// GSAP timeline with onComplete callback to adjust wrapper height
+	const tl = gsap.timeline({
+		onComplete: () => {
+			wrapper.style.height = '100%'; // Adjust height to 100% after transition
+			containerInner.style.position = 'relative'; // Ensure position is set as needed
+		},
+	});
+
 	tl
 		.from(container, {
 			duration: 1.8,
@@ -28,9 +37,9 @@ export default function animationEnter(container) {
 		.from(
 			container,
 			{
-				yPercent: 105,
-				duration: 1.5,
-				ease: 'power3.inOut',
+				yPercent: 100,
+				duration: 1.8,
+				ease: 'expo.inOut',
 			},
 			'<+0.2',
 		)
@@ -38,13 +47,11 @@ export default function animationEnter(container) {
 			chars,
 			{
 				yPercent: 105,
-				duration: 1.5,
+				duration: 1,
 				ease: 'power4.out',
-				stagger: {
-					amount: 0.4,
-				},
+				stagger: { amount: 0.8 },
 			},
-			'<+0.6',
+			'<+0.5',
 		)
 		.from(
 			lines,
@@ -52,11 +59,10 @@ export default function animationEnter(container) {
 				yPercent: 100,
 				duration: 1,
 				ease: 'power3.out',
-				stagger: {
-					each: 0.15,
-				},
+				stagger: { each: 0.1 },
 			},
-			'<+0.3',
+			'<+0.1',
 		);
+
 	return tl;
 }
