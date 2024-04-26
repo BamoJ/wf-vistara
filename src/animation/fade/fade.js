@@ -6,15 +6,17 @@ export default class Fade {
 		this.init();
 	}
 
-	init() {
-		this.fade();
-	}
-
 	animate() {
-		gsap.from(this.el, {
-			opacity: 0,
-			duration: 0.5,
-			ease: 'power2.inOut',
+		this.el.forEach((el) => {
+			gsap.from(el, {
+				opacity: 0,
+				duration: 1,
+				ease: 'power2.out',
+				scrollTrigger: {
+					trigger: el,
+					start: 'top 80%',
+				},
+			});
 		});
 	}
 }

@@ -88,7 +88,7 @@ export default class Transition {
 						console.log('enter detail page');
 						return detailEnter(next.container);
 					},
-					afterEnter({ next }) {
+					after({ next }) {
 						next.container.classList.remove('is-transition');
 					},
 					leave({ current }) {

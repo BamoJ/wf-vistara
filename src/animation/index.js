@@ -1,4 +1,3 @@
-import Hover from './hover/hover';
 import Preloader from './preloader/preloader';
 import Paragraph from './text/paragraph';
 import Title from './text/title';

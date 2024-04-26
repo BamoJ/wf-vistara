@@ -1,7 +1,6 @@
-// core version + navigation, pagination modules:
 import Swiper from 'swiper';
 import { Navigation, Parallax } from 'swiper/modules';
-import gsap from 'gsap';
+
 import 'swiper/css';
 
 export default class Slider {
