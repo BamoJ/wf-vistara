@@ -2,7 +2,6 @@ import barba from '@barba/core';
 import barbaPrefetch from '@barba/prefetch';
 import Slider from '../slider/slider';
 import Split from '../../utils/split';
-import animationEnter from './animationEnter';
 import animationLeave from './animationLeave';
 import homeEnter from './homeEnter';
 import workEnter from './workEnter';
@@ -23,7 +22,7 @@ export default class Transition {
 					name: 'global-leave-transition',
 					sync: true,
 					leave: ({ current }) => {
-						console.log('leaving current page');
+						console.log('leaving global page');
 						return animationLeave(current.container);
 					},
 					// beforeEnter({ next }) {

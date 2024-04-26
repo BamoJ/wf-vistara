@@ -60,18 +60,15 @@ export default function detailEnter(container) {
 			},
 			'<+0.25',
 		)
-		.fromTo(
+		.from(
 			el.detailCap,
 			{
 				yPercent: 100,
-			},
-			{
-				yPercent: 0,
 				duration: 1,
 				ease: 'power3.out',
 				stagger: { each: 0.1 },
 			},
-			'<+.25',
+			'<+.45',
 		);
 
 	return tl;
