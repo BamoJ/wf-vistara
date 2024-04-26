@@ -1,9 +1,7 @@
-import { defineConfig } from 'vite'
-import glslify from 'rollup-plugin-glslify'
+import { defineConfig } from 'vite';
 
 // vite.config.js
 export default defineConfig({
-	plugins: [glslify()],
 	server: {
 		host: 'localhost',
 		cors: '*',
@@ -26,4 +24,4 @@ export default defineConfig({
 			},
 		},
 	},
-})
+});

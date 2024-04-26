@@ -19,7 +19,7 @@ export default class Animation {
 			// Set 'hasLoaded' in sessionStorage
 			sessionStorage.setItem('hasLoaded', 'true');
 			// If preloaderElement exists, set display to 'block' or the default display
-			if (preloaderElement) preloaderElement.style.display = 'block';
+			if (preloaderElement) preloaderElement.style.display = 'flex';
 			// Trigger the Preloader animation
 			new Preloader();
 		} else {

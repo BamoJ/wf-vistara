@@ -4,6 +4,9 @@ import Slider from '../slider/slider';
 import Split from '../../utils/split';
 import animationEnter from './animationEnter';
 import animationLeave from './animationLeave';
+import homeEnter from './homeEnter';
+import workEnter from './workEnter';
+import detailEnter from './detailEnter';
 
 export default class Transition {
 	constructor() {
@@ -11,49 +14,101 @@ export default class Transition {
 		this.pageTrans();
 	}
 
-	/**
-	 * TODO: Add loading cursor while transitioning, and remove it after transition
-	 * TODO: Tidy stagger animations
-	 * TODO: add Whipe animation
-	 * TODO: Fix SLIDER, make sure it works while transitioning
-	 */
-
 	pageTrans() {
 		this.barba.use(barbaPrefetch);
 		this.barba.init({
 			preventRunning: true,
 			transitions: [
 				{
+					name: 'global-leave-transition',
 					sync: true,
-					name: 'default-transition',
 					leave: ({ current }) => {
 						console.log('leaving current page');
 						return animationLeave(current.container);
 					},
-					afterLeave({ current }) {
-						current.container.classList.remove('is-transition');
-						new Slider();
+					// beforeEnter({ next }) {
+					// 	next.container.classList.add('is-transition');
+					// },
+					// enter: ({ next }) => {
+					// 	console.log('entering next page');
+					// 	animationEnter(next.container);
+					// },
+					// afterEnter({ next }) {
+					// 	next.container.classList.remove('is-transition');
+					// },
+				},
+				{
+					name: 'home-transition',
+					sync: true,
+					to: {
+						namespace: ['home'],
+					},
+					enter: ({ next }) => {
+						return homeEnter(next.container);
+					},
+					leave({ current }) {
+						return animationLeave(current.container);
 					},
 					beforeEnter({ next }) {
 						next.container.classList.add('is-transition');
 					},
+				},
+				{
+					name: 'work-transition',
+					sync: true,
+					to: {
+						namespace: ['work'],
+					},
+					once({ next }) {
+						workEnter(next.container);
+					},
+					beforeEnter({ next }) {
+						next.container.classList.add('is-transition');
+						new Slider(next.container);
+					},
 					enter: ({ next }) => {
-						console.log('entering next page');
-						animationEnter(next.container);
+						workEnter(next.container);
+					},
+					leave: ({ current }) => {
+						return animationLeave(current.container);
 					},
 					afterEnter({ next }) {
 						next.container.classList.remove('is-transition');
 					},
 				},
+				{
+					name: 'detail-transition',
+					sync: true,
+					to: {
+						namespace: ['detail'],
+					},
+					beforeEnter({ next }) {
+						next.container.classList.add('is-transition');
+					},
+					enter: ({ next }) => {
+						console.log('enter detail page');
+						return detailEnter(next.container);
+					},
+					afterEnter({ next }) {
+						next.container.classList.remove('is-transition');
+					},
+					leave({ current }) {
+						console.log('leaving detail page');
+						return animationLeave(current.container);
+					},
+				},
 			],
 		});
 
+		// use barba hoook to change the cursor to loadign while transitioning
+		this.barba.hooks.before(() => {
+			document.body.style.cursor = 'wait';
+		});
 		this.barba.hooks.beforeEnter(() => {
 			new Split();
 		});
 		this.barba.hooks.after(() => {
-			const transContainer = document.querySelector('.transition');
-			transContainer.style.transform = 'translateY(100%)';
+			document.body.style.cursor = 'auto';
 			window.scrollTo(0, 0);
 		});
 	}

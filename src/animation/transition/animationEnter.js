@@ -18,10 +18,12 @@ export default function animationEnter(container) {
 		lines.push(...text.querySelectorAll('.line_inner'));
 	});
 	const transContainer = document.querySelector('.transition');
-	console.log(transContainer);
-	gsap.set(transContainer, { transform: 'translateY(100%)' });
 
-	const tl = gsap.timeline();
+	const tl = gsap.timeline({
+		onComplete: () => {
+			gsap.set(transContainer, { transform: 'translateY(100%)' });
+		},
+	});
 	tl
 		.to(transContainer, {
 			transform: 'translateY(-100%)',
@@ -40,12 +42,12 @@ export default function animationEnter(container) {
 		.from(
 			chars,
 			{
-				yPercent: 105,
-				duration: 1,
-				ease: 'power4.out',
-				stagger: { amount: 0.8 },
+				yPercent: 100,
+				duration: 1.2,
+				ease: 'power3.out',
+				stagger: { each: 0.1 },
 			},
-			'<+0.5',
+			'<+0.8',
 		)
 		.from(
 			lines,
@@ -55,7 +57,7 @@ export default function animationEnter(container) {
 				ease: 'power3.out',
 				stagger: { each: 0.1 },
 			},
-			'<+0.1',
+			'<+0.7',
 		);
 
 	return tl;
