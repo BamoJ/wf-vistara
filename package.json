@@ -1,21 +1,21 @@
 {
-	"scripts": {
-		"dev": "vite",
-		"build": "vite build",
-		"preview": "vite preview",
-		"clean": "rimraf -rf dist"
-	},
-	"devDependencies": {
-		"prettier": "^2.8.8",
-		"rimraf": "^5.0.1",
-		"vite": "^2.9.16"
-	},
-	"dependencies": {
-		"@barba/core": "^2.9.7",
-		"@barba/prefetch": "^2.1.10",
-		"@studio-freight/lenis": "^1.0.16",
-		"gsap": "^3.12.5",
-		"split-type": "^0.3.3",
-		"swiper": "^11.1.1"
-	}
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "clean": "rimraf -rf dist"
+  },
+  "devDependencies": {
+    "prettier": "^2.8.8",
+    "rimraf": "^5.0.1",
+    "vite": "^2.9.16"
+  },
+  "dependencies": {
+    "@barba/core": "^2.9.7",
+    "@barba/prefetch": "^2.1.10",
+    "gsap": "^3.12.5",
+    "lenis": "^1.0.44",
+    "split-type": "^0.3.3",
+    "swiper": "^11.1.1"
+  }
 }

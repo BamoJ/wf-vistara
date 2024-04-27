@@ -2,6 +2,9 @@ import gsap from 'gsap';
 
 export default function btnHover() {
 	const btn = document.querySelectorAll('.btn');
+	const btnWhipe = document.querySelectorAll('.btn_whipe');
+	const btnArrow = document.querySelectorAll('.btn_arrow');
+
 	btn.forEach((el) => {
 		el.addEventListener('mouseenter', () => {
 			gsap.to(el, {

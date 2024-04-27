@@ -22,25 +22,18 @@ export default class Transition {
 					name: 'global-leave-transition',
 					sync: true,
 					leave: ({ current }) => {
-						console.log('leaving global page');
 						return animationLeave(current.container);
 					},
-					// beforeEnter({ next }) {
-					// 	next.container.classList.add('is-transition');
-					// },
-					// enter: ({ next }) => {
-					// 	console.log('entering next page');
-					// 	animationEnter(next.container);
-					// },
-					// afterEnter({ next }) {
-					// 	next.container.classList.remove('is-transition');
-					// },
 				},
 				{
 					name: 'home-transition',
 					sync: true,
 					to: {
 						namespace: ['home'],
+					},
+					once({ next }) {
+						new Split();
+						homeEnter(next.container);
 					},
 					enter: ({ next }) => {
 						return homeEnter(next.container);
@@ -85,14 +78,12 @@ export default class Transition {
 						next.container.classList.add('is-transition');
 					},
 					enter: ({ next }) => {
-						console.log('enter detail page');
 						return detailEnter(next.container);
 					},
 					after({ next }) {
 						next.container.classList.remove('is-transition');
 					},
 					leave({ current }) {
-						console.log('leaving detail page');
 						return animationLeave(current.container);
 					},
 				},
