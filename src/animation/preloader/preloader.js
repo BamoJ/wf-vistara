@@ -10,12 +10,15 @@ export default class Preloader {
 	}
 
 	init() {
-		this.tl = gsap.timeline();
-		this.tl.to(this.el.preloader, {
-			duration: 1.25,
-			yPercent: -100,
-			ease: 'power3.inOut',
+		this.tl = gsap.timeline({
+			onComplete: () => {
+				gsap.set(this.el.preloader, { display: 'none' });
+			},
 		});
-		this.tl.set(this.el.preloader, { display: 'none' }, '>');
+		this.tl.to(this.el.preloader, {
+			duration: 1.5,
+			yPercent: -100,
+			ease: 'expo.inOut',
+		});
 	}
 }

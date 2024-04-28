@@ -7,13 +7,13 @@ export default class Fade {
 	}
 
 	init() {
-		this.el.forEach((el) => {
-			gsap.from(el, {
-				opacity: 0,
+		this.el.forEach((line) => {
+			gsap.from(line, {
+				width: 0,
 				duration: 1,
 				ease: 'power2.out',
 				scrollTrigger: {
-					trigger: el,
+					trigger: line,
 					start: 'top 80%',
 				},
 			});

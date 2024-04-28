@@ -2,7 +2,13 @@ import Lenis from 'lenis';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 export default class SmoothScroll extends Lenis {
+	static instance;
+
 	constructor() {
+		if (SmoothScroll.instance) {
+			return SmoothScroll.instance;
+		}
+
 		super();
 		this.lenis = new Lenis({
 			duration: 1.4,
@@ -18,6 +24,8 @@ export default class SmoothScroll extends Lenis {
 		});
 
 		this.startRAF();
+
+		SmoothScroll.instance = this;
 	}
 
 	startRAF() {

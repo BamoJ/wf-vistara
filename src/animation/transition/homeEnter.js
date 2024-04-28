@@ -19,7 +19,11 @@ export default function homeEnter(container) {
 		lines.push(...text.querySelectorAll('.line_inner'));
 	});
 
-	const tl = gsap.timeline({});
+	const tl = gsap.timeline({
+		onComplete: () => {
+			gsap.set(el.transition, { transform: 'translateY(100%)' });
+		},
+	});
 	tl
 		.to(el.transition, {
 			transform: 'translateY(-100%)',

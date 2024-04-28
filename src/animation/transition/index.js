@@ -1,7 +1,12 @@
 import barba from '@barba/core';
 import barbaPrefetch from '@barba/prefetch';
+
+/* Other module Import */
 import Slider from '../slider/slider';
 import Split from '../../utils/split';
+import SmoothScroll from '../../utils/scroll';
+
+/* Animation Import */
 import animationLeave from './animationLeave';
 import homeEnter from './homeEnter';
 import workEnter from './workEnter';
@@ -10,6 +15,7 @@ import detailEnter from './detailEnter';
 export default class Transition {
 	constructor() {
 		this.barba = barba;
+		this.scroll = new SmoothScroll();
 		this.pageTrans();
 	}
 
@@ -35,14 +41,17 @@ export default class Transition {
 						new Split();
 						homeEnter(next.container);
 					},
+					beforeEnter({ next }) {
+						next.container.classList.add('is-transition');
+					},
 					enter: ({ next }) => {
 						return homeEnter(next.container);
 					},
 					leave({ current }) {
 						return animationLeave(current.container);
 					},
-					beforeEnter({ next }) {
-						next.container.classList.add('is-transition');
+					afterLeave({ current }) {
+						current.container.classList.remove('is-transition');
 					},
 				},
 				{
@@ -52,6 +61,7 @@ export default class Transition {
 						namespace: ['work'],
 					},
 					once({ next }) {
+						new Split();
 						workEnter(next.container);
 					},
 					beforeEnter({ next }) {
@@ -74,6 +84,10 @@ export default class Transition {
 					to: {
 						namespace: ['detail'],
 					},
+					once({ next }) {
+						new Split();
+						detailEnter(next.container);
+					},
 					beforeEnter({ next }) {
 						next.container.classList.add('is-transition');
 					},
@@ -93,6 +107,7 @@ export default class Transition {
 		// use barba hoook to change the cursor to loadign while transitioning
 		this.barba.hooks.before(() => {
 			document.body.style.cursor = 'wait';
+			this.scroll.stopScroll();
 		});
 		this.barba.hooks.beforeEnter(() => {
 			new Split();
@@ -100,6 +115,7 @@ export default class Transition {
 		this.barba.hooks.after(() => {
 			document.body.style.cursor = 'auto';
 			window.scrollTo(0, 0);
+			this.scroll.startScroll();
 		});
 	}
 }
