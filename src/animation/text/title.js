@@ -2,9 +2,9 @@ import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
-export default class Title {
+export default class SlideUp {
 	constructor() {
-		this.el = document.querySelectorAll('[data-animation="title"]');
+		this.el = document.querySelectorAll('[data-animation="slide-up"]');
 
 		this.animate();
 	}
@@ -14,14 +14,13 @@ export default class Title {
 			gsap.from(el, {
 				scrollTrigger: {
 					trigger: el,
-					start: 'top 80%',
-					toggleActions: 'play none none none',
+					start: 'top 97%',
 				},
-				y: 50,
-				opacity: 0,
-				duration: 0.5,
-				ease: 'power2.inOut',
+				yPercent: 100,
+				duration: 1.25,
+				ease: 'power3.out',
 			});
+			ScrollTrigger.refresh();
 		});
 	}
 }

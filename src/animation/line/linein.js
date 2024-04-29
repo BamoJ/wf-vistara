@@ -1,6 +1,8 @@
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
 
-export default class Fade {
+export default class Line {
 	constructor() {
 		this.el = document.querySelectorAll('[data-animation="line-in"]');
 		this.init();
@@ -9,14 +11,15 @@ export default class Fade {
 	init() {
 		this.el.forEach((line) => {
 			gsap.from(line, {
-				width: 0,
-				duration: 1,
-				ease: 'power2.out',
+				width: '0%',
+				duration: 1.8,
+				ease: 'power4.out',
 				scrollTrigger: {
 					trigger: line,
-					start: 'top 80%',
+					start: 'top 90%',
 				},
 			});
+			ScrollTrigger.refresh();
 		});
 	}
 }

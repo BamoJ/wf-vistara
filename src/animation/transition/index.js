@@ -1,16 +1,27 @@
 import barba from '@barba/core';
 import barbaPrefetch from '@barba/prefetch';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 /* Other module Import */
 import Slider from '../slider/slider';
 import Split from '../../utils/split';
 import SmoothScroll from '../../utils/scroll';
+import Parallax from '../image/parallax';
+import Whipe from '../image/whipe';
+import Line from '../line/linein';
+import SlideUp from '../text/title';
+import SlideParagraph from '../text/paragraph';
+import FooterLogo from '../logo/footerLogo';
+import Fade from '../fade/fade';
 
 /* Animation Import */
 import animationLeave from './animationLeave';
 import homeEnter from './homeEnter';
 import workEnter from './workEnter';
 import detailEnter from './detailEnter';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default class Transition {
 	constructor() {
@@ -86,6 +97,13 @@ export default class Transition {
 					},
 					once({ next }) {
 						new Split();
+						new SlideUp();
+						new SlideParagraph();
+						new Parallax();
+						new Line();
+						new Whipe();
+						new FooterLogo();
+						new Fade();
 						detailEnter(next.container);
 					},
 					beforeEnter({ next }) {
@@ -95,6 +113,13 @@ export default class Transition {
 						return detailEnter(next.container);
 					},
 					after({ next }) {
+						new Parallax();
+						new Whipe();
+						new Line();
+						new SlideUp();
+						new SlideParagraph();
+						new Fade();
+						new FooterLogo();
 						next.container.classList.remove('is-transition');
 					},
 					leave({ current }) {
