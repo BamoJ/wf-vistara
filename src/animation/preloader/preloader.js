@@ -24,15 +24,12 @@ export default class Preloader {
 		};
 		this.startTime = performance.now();
 
-		console.log(this.startTime);
-
 		this.addEventListener();
 	}
 
 	init() {
 		const counter = { value: 0 };
-		const loadTime = performance.now() - this.startTime;
-		const duration = Math.max(1, loadTime / 1000);
+		const duration = Math.max(1, this.startTime / 1000);
 
 		this.tl = gsap.timeline({
 			onComplete: () => {
