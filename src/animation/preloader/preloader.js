@@ -23,13 +23,16 @@ export default class Preloader {
 			navLine: document.querySelector('[data-preload="nav-line"]'),
 		};
 		this.startTime = performance.now();
+
+		console.log(this.startTime);
+
 		this.addEventListener();
 	}
 
 	init() {
-		console.log('Page load time: ', this.startTime);
-
 		const counter = { value: 0 };
+		const loadTime = performance.now() - this.startTime;
+		const duration = Math.max(1, loadTime / 1000);
 
 		this.tl = gsap.timeline({
 			onComplete: () => {
@@ -40,7 +43,7 @@ export default class Preloader {
 		this.tl
 			.to(counter, {
 				value: 100,
-				duration: this.startTime / 1000,
+				duration: duration,
 				ease: 'linear',
 				onUpdate: () => {
 					this.el.preloaderNum.innerText = Math.round(counter.value) + '%';

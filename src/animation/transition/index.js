@@ -3,7 +3,7 @@ import barbaPrefetch from '@barba/prefetch';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-/* Other module Import */
+/* Other Animation Import */
 import Slider from '../slider/slider';
 import Split from '../../utils/split';
 import SmoothScroll from '../../utils/scroll';
@@ -15,7 +15,7 @@ import SlideParagraph from '../text/paragraph';
 import FooterLogo from '../logo/footerLogo';
 import Fade from '../fade/fade';
 
-/* Animation Import */
+/* Transition Animation and preloader Import */
 import Preloader from '../preloader/preloader';
 import animationLeave from './animationLeave';
 import homeEnter from './homeEnter';
