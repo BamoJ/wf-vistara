@@ -1,5 +1,6 @@
 import Lenis from 'lenis';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import gsap from 'gsap';
 
 export default class SmoothScroll extends Lenis {
 	static instance;
@@ -22,8 +23,13 @@ export default class SmoothScroll extends Lenis {
 
 		this.lenis.on('scroll', () => {
 			ScrollTrigger.update();
-			ScrollTrigger.refresh();
 		});
+
+		gsap.ticker.add((time) => {
+			this.lenis.raf(time * 1000);
+		});
+
+		gsap.ticker.lagSmoothing(0);
 
 		this.startRAF();
 
