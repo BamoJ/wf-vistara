@@ -22,8 +22,7 @@ export default class SmoothScroll extends Lenis {
 		});
 
 		this.lenis.on('scroll', () => {
-			// ScrollTrigger.update();
-			ScrollTrigger.refresh();
+			ScrollTrigger.update();
 		});
 
 		gsap.ticker.add((time) => {
