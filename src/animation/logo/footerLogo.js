@@ -5,7 +5,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default class FooterLogo {
 	constructor() {
-		// Select all path elements within the SVG with the class 'footer_svg'
 		this.el = document.querySelectorAll('.footer_svg path');
 
 		this.init();
