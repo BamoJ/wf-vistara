@@ -16,6 +16,7 @@ import FooterLogo from '../logo/footerLogo';
 import Fade from '../fade/fade';
 
 /* Animation Import */
+import Preloader from '../preloader/preloader';
 import animationLeave from './animationLeave';
 import homeEnter from './homeEnter';
 import workEnter from './workEnter';
@@ -50,7 +51,8 @@ export default class Transition {
 					},
 					once({ next }) {
 						new Split();
-						homeEnter(next.container);
+						new Preloader(next.container);
+						// homeEnter(next.container);
 					},
 					beforeEnter({ next }) {
 						next.container.classList.add('is-transition');

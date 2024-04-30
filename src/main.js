@@ -1,6 +1,5 @@
 import Animation from './animation';
 import SmoothScroll from './utils/scroll';
-import Split from './utils/split';
 
 import './styles/style.css';
 class App {
