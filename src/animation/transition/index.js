@@ -52,7 +52,7 @@ export default class Transition {
 					once({ next }) {
 						new Split();
 						new Preloader(next.container);
-						// homeEnter(next.container);
+						homeEnter(next.container);
 					},
 					beforeEnter({ next }) {
 						next.container.classList.add('is-transition');
