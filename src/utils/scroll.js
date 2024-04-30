@@ -22,7 +22,7 @@ export default class SmoothScroll extends Lenis {
 		});
 
 		this.lenis.on('scroll', () => {
-			ScrollTrigger.update();
+			// ScrollTrigger.update();
 			ScrollTrigger.refresh();
 		});
 
