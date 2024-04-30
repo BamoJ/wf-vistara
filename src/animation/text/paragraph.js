@@ -21,7 +21,7 @@ export default class SlideParagraph {
 				ease: 'power3.out',
 				stagger: 0.1,
 			});
-			ScrollTrigger.refresh();
+			// ScrollTrigger.refresh();
 		});
 	}
 }

@@ -20,7 +20,7 @@ export default class SlideUp {
 				duration: 1.25,
 				ease: 'power3.out',
 			});
-			ScrollTrigger.refresh();
+			// ScrollTrigger.refresh();
 		});
 	}
 }

@@ -26,7 +26,7 @@ export default class Parallax {
 				y: '12%',
 				ease: 'none',
 			});
-			ScrollTrigger.refresh();
+			// ScrollTrigger.refresh();
 		});
 	}
 }

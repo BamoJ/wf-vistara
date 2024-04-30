@@ -23,7 +23,7 @@ export default class Whipe {
 				ease: 'power4.out',
 				duration: 1.8,
 			});
-			ScrollTrigger.refresh();
+			// ScrollTrigger.refresh();
 		});
 	}
 }
