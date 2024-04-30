@@ -24,7 +24,7 @@ export default class Preloader {
 		};
 		this.startTime = performance.now();
 
-		this.addEventListener();
+		this.init();
 	}
 
 	init() {
@@ -163,11 +163,5 @@ export default class Preloader {
 				},
 				'<+.2',
 			);
-	}
-
-	addEventListener() {
-		window.addEventListener('load', () => {
-			this.init();
-		});
 	}
 }
