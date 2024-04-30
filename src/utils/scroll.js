@@ -23,14 +23,8 @@ export default class SmoothScroll extends Lenis {
 
 		this.lenis.on('scroll', () => {
 			ScrollTrigger.update();
-
-			// turn of scroll trigger when in mobile/tablet
-			if (window.innerWidth < 1024) {
-				ScrollTrigger.getAll().forEach((trigger) => {
-					trigger.kill();
-				});
-			}
-
+			// turn of scroll trigger refresh when in mobile/tablet
+			if (window.innerWidth < 1024) return;
 			ScrollTrigger.refresh();
 		});
 
