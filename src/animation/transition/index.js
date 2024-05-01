@@ -59,7 +59,7 @@ export default class Transition {
 					leave({ current }) {
 						return animationLeave(current.container);
 					},
-					afterLeave({ current }) {
+					after({ current }) {
 						current.container.classList.remove('is-transition');
 					},
 				},
@@ -83,7 +83,7 @@ export default class Transition {
 					leave: ({ current }) => {
 						return animationLeave(current.container);
 					},
-					afterEnter({ next }) {
+					after({ next }) {
 						next.container.classList.remove('is-transition');
 					},
 				},
@@ -127,14 +127,15 @@ export default class Transition {
 			],
 		});
 
-		// use barba hoook to change the cursor to loadign while transitioning
+		this.barba.hooks.beforeEnter(() => {
+			new Split();
+		});
+
 		this.barba.hooks.before(() => {
 			document.body.style.cursor = 'wait';
 			this.scroll.stopScroll();
 		});
-		this.barba.hooks.beforeEnter(() => {
-			new Split();
-		});
+
 		this.barba.hooks.after(() => {
 			document.body.style.cursor = 'auto';
 			window.scrollTo(0, 0);

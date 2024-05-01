@@ -17,15 +17,18 @@ export default function workEnter(container) {
 		sliderBtnTxt: container.querySelectorAll('.slider_btm_txt'),
 	};
 
+	gsap.set(el.transition, { display: 'block' });
+
 	const tl = gsap.timeline({
 		onComplete: () => {
-			gsap.set(el.transition, { transform: 'translateY(100svh)' });
+			gsap.set(el.transition, { transform: 'translateY(100%)' });
+			gsap.set(el.transition, { display: 'none' });
 		},
 	});
 
 	tl
 		.to(el.transition, {
-			transform: 'translateY(-100svh)',
+			transform: 'translateY(-100%)',
 			duration: 1.9,
 			ease: 'expo.inOut',
 		})

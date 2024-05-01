@@ -9,16 +9,18 @@ export default function homeEnter(container) {
 		transition: document.querySelector('.transition'),
 		stars: container.querySelectorAll('.hero_stars'),
 	};
+	gsap.set(el.transition, { display: 'block' });
 
 	const tl = gsap.timeline({
 		onComplete: () => {
-			gsap.set(el.transition, { transform: 'translateY(100svh)' });
+			gsap.set(el.transition, { transform: 'translateY(100%)' });
+			gsap.set(el.transition, { display: 'none' });
 		},
 	});
 
 	tl
 		.to(el.transition, {
-			transform: 'translateY(-100svh)',
+			transform: 'translateY(-100%)',
 			duration: 1.9,
 			ease: 'expo.inOut',
 		})

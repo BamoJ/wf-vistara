@@ -5,12 +5,12 @@ export default function animationLeave(container) {
 
 	const tl = gsap.timeline({
 		onComplete: () => {
-			gsap.set(transContainer, { transform: 'translateY(100svh)' });
+			gsap.set(transContainer, { transform: 'translateY(100%)' });
 		},
 	});
 	tl.to(transContainer, {
-		transform: 'translateY(0svh)',
-		duration: 1.8,
+		transform: 'translateY(0%)',
+		duration: 1.9,
 		ease: 'expo.inOut',
 	});
 	tl.to(
