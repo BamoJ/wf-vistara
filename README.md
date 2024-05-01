@@ -12,7 +12,9 @@ Stacks:
 The doc is [here](https://github.com/armandsalle/vite-javascript-webflow/blob/main/HowToUse_JS_EN.md) 
 
 <br />
+
 ## Tutorial Video by Mael from Tambien
+
 [here](https://youtu.be/6EZkoBkXlic?si=M2Uri6iIikdwUYK_) 
 
 ## Live Example
