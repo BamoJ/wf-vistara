@@ -16,6 +16,9 @@ export default class Parallax {
 	}
 
 	parallax() {
+		gsap.set(el.img, {
+			transformOrigin: 'center center',
+		});
 		this.el.img.forEach((img) => {
 			gsap.set(img, { scale: 1.1 });
 			gsap.to(img, {

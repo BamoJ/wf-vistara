@@ -2,7 +2,7 @@ import gsap from 'gsap';
 
 export default function detailEnter(container) {
 	const el = {
-		head: container.querySelectorAll('[data-animation="trans-head"]'),
+		head: container.querySelector('[data-animation="trans-head"]'),
 		detailCap: container.querySelectorAll(
 			'[data-animation="trans-sd"]',
 		),
@@ -10,15 +10,6 @@ export default function detailEnter(container) {
 		whipe: container.querySelectorAll('.trans_whipe'),
 		img: container.querySelector('.detail_img'),
 	};
-
-	const chars = [];
-	el.head.forEach((head) => {
-		chars.push(...head.querySelectorAll('.char'));
-	});
-
-	gsap.set(el.img, {
-		transformOrigin: 'center center',
-	});
 
 	const tl = gsap.timeline({
 		onComplete: () => {
@@ -53,7 +44,7 @@ export default function detailEnter(container) {
 			'<+1',
 		)
 		.from(
-			chars,
+			el.head.querySelectorAll('.char'),
 			{
 				yPercent: 100,
 				duration: 1.2,
