@@ -1,8 +1,7 @@
 Stacks:
 
 ```sh
-# GSAP
-# Three
+# GSAP 
 # Lenis
 # Barba
 ```
