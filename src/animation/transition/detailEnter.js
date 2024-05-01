@@ -17,12 +17,13 @@ export default function detailEnter(container) {
 	});
 
 	gsap.set(el.img, {
-		transformOrigin: 'top center',
+		transformOrigin: 'center center',
 	});
 
 	const tl = gsap.timeline({
 		onComplete: () => {
 			gsap.set(el.transition, { transform: 'translateY(100%)' });
+			gsap.set(el.transition, { display: 'none' });
 		},
 	});
 
