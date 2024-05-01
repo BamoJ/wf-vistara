@@ -136,7 +136,7 @@ export default class MenuOpen {
 			.from(
 				this.el.colTxt,
 				{
-					yPercent: 150,
+					yPercent: 165,
 					duration: 0.85,
 					ease: 'power3.out',
 					stagger: 0.1,
