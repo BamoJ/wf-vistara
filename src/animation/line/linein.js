@@ -19,7 +19,6 @@ export default class Line {
 					start: 'top 90%',
 				},
 			});
-			// ScrollTrigger.refresh();
 		});
 	}
 }

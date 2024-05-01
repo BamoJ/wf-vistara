@@ -21,6 +21,5 @@ export default class FooterLogo {
 			ease: 'power3.out',
 			stagger: 0.075,
 		});
-		// ScrollTrigger.refresh();
 	}
 }
