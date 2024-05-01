@@ -23,7 +23,7 @@ The doc is [here](https://github.com/armandsalle/vite-javascript-webflow/blob/ma
 <br />
 [React Webflow Logo](https://webflow-react-logo.webflow.io/)
 <br />
-[Velet Blues](https://velvetblues.webflow.io/)
+[Velvet Blues](https://velvetblues.webflow.io/)
 <br />
 
 
