@@ -10,12 +10,14 @@ Stacks:
 
 ### 🇬🇧 English
 The doc is [here](https://github.com/armandsalle/vite-javascript-webflow/blob/main/HowToUse_JS_EN.md) 
+if you need more insight on how to use this vite template with Webflow, Kindly visit this Video tutorial from Mael 
+[here](https://youtu.be/6EZkoBkXlic?si=M2Uri6iIikdwUYK_) 
 
 <br />
 
-## Tutorial Video by Mael from Tambien
+ 
 
-[here](https://youtu.be/6EZkoBkXlic?si=M2Uri6iIikdwUYK_) 
+
 
 ## Live Example
 
