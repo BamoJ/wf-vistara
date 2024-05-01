@@ -5,7 +5,7 @@ export default class Split {
 		this.width = window.innerWidth;
 
 		this.splitText();
-		this.revert();
+		this.resize();
 	}
 
 	splitText() {
@@ -33,7 +33,7 @@ export default class Split {
 		this.runSplit();
 	}
 
-	revert() {
+	resize() {
 		window.addEventListener('resize', () => {
 			if (this.width !== window.innerWidth) {
 				this.width = window.innerWidth;
@@ -42,5 +42,9 @@ export default class Split {
 				this.runSplit();
 			}
 		});
+	}
+
+	revert() {
+		this.split.revert();
 	}
 }
