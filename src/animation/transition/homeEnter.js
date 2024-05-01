@@ -10,14 +10,14 @@ export default function homeEnter(container) {
 		stars: container.querySelectorAll('.hero_stars'),
 	};
 
-	gsap.set(el.transition, { display: 'block' });
-
 	const tl = gsap.timeline({
 		onComplete: () => {
 			gsap.set(el.transition, { transform: 'translateY(100%)' });
 			gsap.set(el.transition, { display: 'none' });
 		},
 	});
+
+	gsap.set(el.transition, { display: 'block' });
 	tl
 		.to(el.transition, {
 			transform: 'translateY(-100%)',

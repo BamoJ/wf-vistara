@@ -1,7 +1,5 @@
 import barba from '@barba/core';
 import barbaPrefetch from '@barba/prefetch';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 /* Other Animation Import */
 import Slider from '../slider/slider';
@@ -21,8 +19,6 @@ import animationLeave from './animationLeave';
 import homeEnter from './homeEnter';
 import workEnter from './workEnter';
 import detailEnter from './detailEnter';
-
-gsap.registerPlugin(ScrollTrigger);
 
 export default class Transition {
 	constructor() {

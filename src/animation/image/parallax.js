@@ -16,20 +16,16 @@ export default class Parallax {
 	}
 
 	parallax() {
-		gsap.set(el.img, {
-			transformOrigin: 'center center',
-		});
 		this.el.img.forEach((img) => {
 			gsap.set(img, { scale: 1.1 });
 			gsap.to(img, {
 				scrollTrigger: {
 					trigger: img,
-					scrub: 1,
+					scrub: true,
 				},
-				y: '12%',
+				y: img.clientHeight * 0.15,
 				ease: 'none',
 			});
-			// ScrollTrigger.refresh();
 		});
 	}
 }

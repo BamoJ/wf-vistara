@@ -2,6 +2,7 @@ import gsap from 'gsap';
 
 export default function animationLeave(container) {
 	const transContainer = document.querySelector('.transition');
+
 	const tl = gsap.timeline({
 		onComplete: () => {
 			gsap.set(transContainer, { transform: 'translateY(100%)' });

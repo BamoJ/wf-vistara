@@ -2,25 +2,21 @@ import gsap from 'gsap';
 
 export default function detailEnter(container) {
 	const el = {
-		head: container.querySelectorAll('[data-animation="trans-head"]'),
-		detailCap: container.querySelectorAll(
-			'[data-animation="trans-sd"]',
-		),
+		head: container.querySelector('[data-animation="trans-head"]'),
+		detailCap: container.querySelector('[data-animation="trans-sd"]'),
 		transition: document.querySelector('.transition'),
 		whipe: container.querySelectorAll('.trans_whipe'),
 		img: container.querySelector('.detail_img'),
 	};
 
-	const chars = [];
-	el.head.forEach((head) => {
-		chars.push(...head.querySelectorAll('.char'));
-	});
-
 	const tl = gsap.timeline({
 		onComplete: () => {
 			gsap.set(el.transition, { transform: 'translateY(100%)' });
+			gsap.set(el.transition, { display: 'none' });
 		},
 	});
+
+	gsap.set(el.transition, { display: 'block' });
 
 	tl
 		.to(el.transition, {
@@ -47,7 +43,7 @@ export default function detailEnter(container) {
 			'<+1',
 		)
 		.from(
-			chars,
+			el.head.querySelectorAll('.char'),
 			{
 				yPercent: 100,
 				duration: 1.2,

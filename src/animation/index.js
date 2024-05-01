@@ -1,4 +1,4 @@
-import Preloader from './preloader/preloader';
+import infoHover from './hover/infoHover';
 import Transition from './transition';
 import Slider from './slider/slider';
 import MenuOpen from './menu/menuOpen';
@@ -32,6 +32,8 @@ export default class Animation {
 		new MenuOpen();
 		new Slider();
 		new Transition();
+		infoHover();
+
 		// this.initPreloader();
 	}
 }
