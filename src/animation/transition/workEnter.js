@@ -19,13 +19,13 @@ export default function workEnter(container) {
 
 	const tl = gsap.timeline({
 		onComplete: () => {
-			gsap.set(el.transition, { transform: 'translateY(100%)' });
+			gsap.set(el.transition, { transform: 'translateY(100svh)' });
 		},
 	});
 
 	tl
 		.to(el.transition, {
-			transform: 'translateY(-100%)',
+			transform: 'translateY(-100svh)',
 			duration: 1.9,
 			ease: 'expo.inOut',
 		})

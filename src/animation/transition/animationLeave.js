@@ -4,12 +4,12 @@ export default function animationLeave(container) {
 	const transContainer = document.querySelector('.transition');
 
 	const tl = gsap.timeline({
-		// onComplete: () => {
-		// 	gsap.set(transContainer, { transform: 'translateY(100%)' });
-		// },
+		onComplete: () => {
+			gsap.set(transContainer, { transform: 'translateY(100svh)' });
+		},
 	});
 	tl.to(transContainer, {
-		transform: 'translateY(0%)',
+		transform: 'translateY(0svh)',
 		duration: 1.8,
 		ease: 'expo.inOut',
 	});
