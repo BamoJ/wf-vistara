@@ -2,22 +2,15 @@ import gsap from 'gsap';
 
 export default function homeEnter(container) {
 	const el = {
-		head: container.querySelectorAll('[data-animation="trans-head"]'),
-		text: container.querySelectorAll('[data-animation="trans-txt"]'),
+		head: container.querySelector('[data-animation="trans-head"]'),
+		text: container.querySelector('[data-animation="trans-txt"]'),
 		heroBtm: container.querySelectorAll('.hero_btm_item'),
 		heroLine: container.querySelector('[data-animation="hero-line"]'),
 		transition: document.querySelector('.transition'),
 		stars: container.querySelectorAll('.hero_stars'),
 	};
-	const chars = [];
-	el.head.forEach((head) => {
-		chars.push(...head.querySelectorAll('.char'));
-	});
 
-	const lines = [];
-	el.text.forEach((text) => {
-		lines.push(...text.querySelectorAll('.line_inner'));
-	});
+	gsap.set(el.transition, { display: 'flex' });
 
 	const tl = gsap.timeline({
 		onComplete: () => {
@@ -41,7 +34,7 @@ export default function homeEnter(container) {
 			'<',
 		)
 		.from(
-			chars,
+			el.head.querySelectorAll('.char'),
 			{
 				yPercent: 100,
 				duration: 1.2,
@@ -60,7 +53,7 @@ export default function homeEnter(container) {
 			'<-0.15',
 		)
 		.from(
-			lines,
+			el.text.querySelectorAll('.line_inner'),
 			{
 				yPercent: 100,
 				duration: 1,
