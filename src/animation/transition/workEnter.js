@@ -5,10 +5,10 @@ export default function workEnter(container) {
 		'.swiper-slide.slide-active',
 	);
 	const el = {
-		head: activeSwiperSlide.querySelector(
+		head: activeSwiperSlide.querySelectorAll(
 			'[data-animation="trans-head"]',
 		),
-		text: activeSwiperSlide.querySelector(
+		text: activeSwiperSlide.querySelectorAll(
 			'[data-animation="trans-txt"]',
 		),
 		transition: document.querySelector('.transition'),
@@ -16,6 +16,16 @@ export default function workEnter(container) {
 		sliderBtn: container.querySelector('.slider_nav'),
 		sliderBtnTxt: container.querySelectorAll('.slider_btm_txt'),
 	};
+
+	const chars = [];
+	el.head.forEach((head) => {
+		chars.push(...head.querySelectorAll('.char'));
+	});
+
+	const lines = [];
+	el.text.forEach((text) => {
+		lines.push(...text.querySelectorAll('.line_inner'));
+	});
 
 	const tl = gsap.timeline({
 		onComplete: () => {
@@ -51,7 +61,7 @@ export default function workEnter(container) {
 			'<+1',
 		)
 		.from(
-			el.head.querySelectorAll('.char'),
+			chars,
 			{
 				yPercent: 100,
 				duration: 1.2,
@@ -61,7 +71,7 @@ export default function workEnter(container) {
 			'<+0.25',
 		)
 		.from(
-			el.text.querySelectorAll('.line__inner'),
+			lines,
 			{
 				yPercent: 100,
 				duration: 1,

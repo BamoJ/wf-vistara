@@ -22,6 +22,7 @@ export default function detailEnter(container) {
 			gsap.set(el.transition, { display: 'none' });
 		},
 	});
+
 	gsap.set(el.transition, { display: 'flex' });
 
 	tl
