@@ -12,16 +12,8 @@ export default function detailEnter(container) {
 	const tl = gsap.timeline({
 		onComplete: () => {
 			gsap.set(el.transition, { transform: 'translateY(100%)' });
-			// hide the transition only on mobile device
-			if (window.innerWidth < 1024) {
-				gsap.set(el.transition, { display: 'none' });
-			}
 		},
 	});
-
-	if (window.innerWidth < 1024) {
-		gsap.set(el.transition, { display: 'block' });
-	}
 
 	tl
 		.to(el.transition, {
