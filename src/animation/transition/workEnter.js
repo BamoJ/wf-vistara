@@ -20,11 +20,17 @@ export default function workEnter(container) {
 	const tl = gsap.timeline({
 		onComplete: () => {
 			gsap.set(el.transition, { transform: 'translateY(100%)' });
-			gsap.set(el.transition, { display: 'none' });
+
+			// hide the transition only on mobile device
+			if (window.innerWidth < 1024) {
+				gsap.set(el.transition, { display: 'none' });
+			}
 		},
 	});
 
-	gsap.set(el.transition, { display: 'block' });
+	if (window.innerWidth < 1024) {
+		gsap.set(el.transition, { display: 'block' });
+	}
 
 	tl
 		.to(el.transition, {

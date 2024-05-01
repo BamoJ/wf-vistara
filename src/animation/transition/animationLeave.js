@@ -6,7 +6,9 @@ export default function animationLeave(container) {
 	const tl = gsap.timeline({
 		onComplete: () => {
 			gsap.set(transContainer, { transform: 'translateY(100%)' });
-			gsap.set(transContainer, { display: 'none' });
+			if (window.innerWidth < 1024) {
+				gsap.set(el.transition, { display: 'none' });
+			}
 		},
 	});
 	tl.to(transContainer, {
