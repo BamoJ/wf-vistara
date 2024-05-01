@@ -6,10 +6,10 @@ export default class Preloader {
 			preloader: document.querySelector('.preloader'),
 			preloaderInner: document.querySelector('.preloader_inner'),
 			preloaderNum: document.querySelector('.preloader_num'),
-			preloaderLineTop: document.querySelectorAll(
+			preloaderLineTop: document.querySelector(
 				'[data-preloader="line"]',
 			),
-			preloaderLineBtm: document.querySelectorAll(
+			preloaderLineBtm: document.querySelector(
 				'[data-preloader="line-btm"]',
 			),
 			preloaderStars: document.querySelectorAll('.preloader_stars'),

@@ -1,11 +1,11 @@
 import gsap from 'gsap';
 
 export default function infoHover() {
-	const btn = document.querySelectorAll('.btn');
-	const btnWhipe = document.querySelectorAll('.btn_whipe');
-	const btnArrow = document.querySelectorAll('.btn_arrow');
+	const infoItem = document.querySelectorAll('.btn');
+	const infoWhipe = document.querySelectorAll('.btn_whipe');
+	const infoArrow = document.querySelectorAll('.btn_arrow');
 
-	btn.forEach((el) => {
+	infoItem.forEach((el) => {
 		el.addEventListener('mouseenter', () => {
 			gsap.to(el, {
 				duration: 0.5,
