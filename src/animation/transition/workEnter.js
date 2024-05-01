@@ -33,7 +33,7 @@ export default function workEnter(container) {
 			gsap.set(el.transition, { display: 'none' });
 		},
 	});
-	gsap.set(el.transition, { display: 'flex' });
+	gsap.set(el.transition, { display: 'none' });
 
 	tl
 		.to(el.transition, {
