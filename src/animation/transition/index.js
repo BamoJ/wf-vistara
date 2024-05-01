@@ -28,7 +28,7 @@ export default class Transition {
 	}
 
 	pageTrans() {
-		this.barba.use(barbaPrefetch);
+		// this.barba.use(barbaPrefetch);
 		this.barba.init({
 			preventRunning: true,
 			transitions: [
